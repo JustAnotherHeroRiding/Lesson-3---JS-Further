@@ -136,9 +136,10 @@ sessioStorage and localStorage
 
 
 ## Todo app with localStorage
+
+- add to local storage, tasks should be saved between refreshes #DONE 
+- delete a task also from local storage #DONE 
 - Search through tasks
-- add to local storage, tasks should be saved between refreshes
-- delete a task also from local storage
 - style the interface
 - skeleton CSS for a start
 - Google icons or fontawesome

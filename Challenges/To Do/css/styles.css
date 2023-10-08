@@ -30,3 +30,8 @@ li {
 .remove-btn:hover {
     background-color: #D83F31;
 }
+
+#searchBar {
+    border-radius: 40px;
+    padding: 1em 1.5em;
+}

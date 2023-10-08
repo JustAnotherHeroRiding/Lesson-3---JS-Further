@@ -1,6 +1,7 @@
 const list = document.getElementById("taskList");
 const addTaskBtn = document.getElementById("addTask");
 const newTaskInput = document.getElementById("newTask");
+const searchInput = document.getElementById("searchBar");
 
 function getTasksFromLocalStorage() {
   const storedTasks = localStorage.getItem("tasks");
