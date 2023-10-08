@@ -24,6 +24,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -33,20 +34,19 @@
   <body>
     <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="container">
+    <div class="container flex-main">
+      <h1>To-Do!</h1>
       <div class="row">
-        <div class="one-half column" style="margin-top: 25%">
-          <h4>Basic Page</h4>
-          <p>
-            This index.html page is a placeholder with the CSS, font and
-            favicon. It's just waiting for you to add some content! If you need
-            some help hit up the
-            <a href="http://www.getskeleton.com">Skeleton documentation</a>.
-          </p>
-        </div>
+        <input
+          type="text"
+          name="newTask"
+          id="newTask"
+          placeholder="Add a task: "
+        />
+        <input type="button" value="Add" id="addTask" class="button-primary" />
       </div>
+      <ul id="taskList"></ul>
     </div>
-
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   </body>

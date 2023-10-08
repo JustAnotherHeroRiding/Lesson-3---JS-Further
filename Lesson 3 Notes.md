@@ -135,19 +135,19 @@ event bubbling
 sessioStorage and localStorage
 
 
-Todo app with localStorage
-Search
-add
-delete
-styles
-skeleton CSS
-Google icons
-To do items save even when closing browser
-Clear state
-Functions!!!
-No duplicate code
-branch name is task/TODOlist
-when i push the request, i should send a merge request to the main branch
+## Todo app with localStorage
+- Search through tasks
+- add to local storage, tasks should be saved between refreshes
+- delete a task also from local storage
+- style the interface
+- skeleton CSS for a start
+- Google icons or fontawesome
+- To do items save even when closing browser
+- Clear state 
+- Functions!!!
+- No duplicate code
+- branch name is task/TODOlist
+- when i push the request, i should send a merge request to the main branch
 
 
 
