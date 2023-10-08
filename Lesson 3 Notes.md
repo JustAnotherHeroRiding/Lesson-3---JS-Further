@@ -139,14 +139,14 @@ sessioStorage and localStorage
 
 - add to local storage, tasks should be saved between refreshes #DONE 
 - delete a task also from local storage #DONE 
-- Search through tasks
+- Search through tasks #DONE 
 - style the interface
-- skeleton CSS for a start
-- Google icons or fontawesome
-- To do items save even when closing browser
-- Clear state 
-- Functions!!!
-- No duplicate code
+- skeleton CSS for a start #DONE 
+- Google icons or fontawesome #DONE 
+- To do items save even when closing browser #DONE 
+- Clear state #DONE 
+- Functions!!! #DONE 
+- No duplicate code #DONE 
 - branch name is task/TODOlist
 - when i push the request, i should send a merge request to the main branch
 
