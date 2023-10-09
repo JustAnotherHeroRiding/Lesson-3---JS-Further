@@ -8,34 +8,41 @@ let victory = false;
 let percentage = 10;
 
 let guessedNumbers = new Set();
-
 function checkSubmit() {
   const guess = numberInput.value;
   if (attempts == 1) {
     submitBtn.textContent = "Play Again";
   }
-  if (guess === "" || isNaN(parseInt(guess))) {
+  if (guess === "") {
     message.style.color = "red";
     numberInput.style.borderColor = "red";
     message.textContent = "Please enter a valid number";
     return;
-  } else if (guess == target) {
+  }
+  if (isNaN(parseInt(guess))) {
+    message.style.color = "red";
+    numberInput.style.borderColor = "red";
+    message.textContent = "Please enter a valid number";
+    return;
+  }
+  if (guess == target) {
+    guessedNumbers.add(guess);
     return true;
   } else {
     guessedNumbers.add(guess);
   }
-  numberInput.value = "";
 
   return false;
 }
 
 function calculatePercentage() {
-  percentage = 100 / (10 - guessedNumbers.length);
+  let remainingAttempts = 10 - guessedNumbers.size;
+  percentage = 100 / remainingAttempts;
   percentageH4.textContent = `Chance to guess ${percentage.toFixed(2)}%`;
 }
 
 submitBtn.addEventListener("click", () => {
-  if (!attempts == 0) {
+  if (attempts > 0) {
     if (checkSubmit() === true) {
       message.textContent = "You guessed correctly!";
       message.style.color = "green";
@@ -48,7 +55,12 @@ submitBtn.addEventListener("click", () => {
       calculatePercentage();
       message.style.color = "red";
       numberInput.style.borderColor = "red";
-      message.textContent = `You have ${attempts} attempts left`;
+      numberInput.value = "";
+      if (attempts == 0) {
+        message.textContent = "You ran out of attempts";
+      } else {
+        message.textContent = `You have ${attempts} attempts left`;
+      }
     }
   } else if (submitBtn.textContent == "Play Again") {
     message.textContent = "";
@@ -57,8 +69,8 @@ submitBtn.addEventListener("click", () => {
     victory = false;
     submitBtn.textContent = "Submit";
     target = Math.floor(Math.random() * 10) + 1;
+    guessedNumbers = new Set();
     calculatePercentage();
-    guessedNumbers = new Set(); // Reset the guessedNumbers Set
   }
 });
 calculatePercentage();

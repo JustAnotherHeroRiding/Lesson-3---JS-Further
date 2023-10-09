@@ -164,7 +164,8 @@ sessionStorage and localStorage
 - If the player guesses incorrectly 3 times in a row then a game over message will be displayed and the button is changed to play again #DONE 
 - Green text if the number guess is correct #DONE 
 - Display probability of guessing the number in the message #DONE 
-- Check if the user guessed the same number twice, perhaps a new variable of guessed numbers, we can use a set
+- Check if the user guessed the same number twice, perhaps a new variable of guessed numbers, we can use a set #DONE 
+- Value needs to be reset
 
 
 
