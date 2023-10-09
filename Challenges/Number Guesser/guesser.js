@@ -41,7 +41,7 @@ function calculatePercentage() {
   percentageH4.textContent = `Chance to guess ${percentage.toFixed(2)}%`;
 }
 
-submitBtn.addEventListener("click", () => {
+function handleSubmit() {
   if (attempts > 0) {
     if (checkSubmit() === true) {
       message.textContent = "You guessed correctly!";
@@ -56,6 +56,7 @@ submitBtn.addEventListener("click", () => {
       message.style.color = "red";
       numberInput.style.borderColor = "red";
       numberInput.value = "";
+      numberInput.focus();
       if (attempts == 0) {
         message.textContent = "You ran out of attempts";
       } else {
@@ -71,6 +72,15 @@ submitBtn.addEventListener("click", () => {
     target = Math.floor(Math.random() * 10) + 1;
     guessedNumbers = new Set();
     calculatePercentage();
+  }
+}
+
+submitBtn.addEventListener("click", () => {
+  handleSubmit();
+});
+numberInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    handleSubmit();
   }
 });
 calculatePercentage();
