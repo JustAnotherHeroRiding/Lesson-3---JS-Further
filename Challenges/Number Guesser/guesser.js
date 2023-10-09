@@ -13,7 +13,7 @@ function checkSubmit() {
   if (attempts == 1) {
     submitBtn.textContent = "Play Again";
   }
-  if (guess === "") {
+  if (guess === "" || guess > 10) {
     message.style.color = "red";
     numberInput.style.borderColor = "red";
     message.textContent = "Please enter a valid number";
@@ -55,13 +55,14 @@ function handleSubmit() {
       calculatePercentage();
       message.style.color = "red";
       numberInput.style.borderColor = "red";
+
+      if (attempts == 0) {
+        message.textContent = `You ran out of attempts :(, the correct number was ${target}`;
+      } else {
+        message.textContent = `${numberInput.value} is not correct, you have ${attempts} attempts left`;
+      }
       numberInput.value = "";
       numberInput.focus();
-      if (attempts == 0) {
-        message.textContent = "You ran out of attempts";
-      } else {
-        message.textContent = `You have ${attempts} attempts left`;
-      }
     }
   } else if (submitBtn.textContent == "Play Again") {
     message.textContent = "";
@@ -72,6 +73,8 @@ function handleSubmit() {
     target = Math.floor(Math.random() * 10) + 1;
     guessedNumbers = new Set();
     calculatePercentage();
+    numberInput.focus();
+
   }
 }
 
