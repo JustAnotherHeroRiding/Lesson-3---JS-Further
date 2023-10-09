@@ -21,7 +21,7 @@ If it is on top it will not detect the html elements
 If we set the defer property to "defer" then it will wait
 Template strings(with backticks)
 Allows us to write better html in js files
-To access an object property, we need to use this
+To access an object property, we need to use this.variable
 If age is defined inside an object, we need to use this.age
 
 
@@ -51,8 +51,8 @@ Wrapping a function with curly brackets and then calling it calls it
 
 
 ## Data types in JS
-string
-boolean
+- string
+- boolean
 - number
 
 - undefined
@@ -96,7 +96,7 @@ we can access the first children by using document.body.children[0]
 
  Node types
 1. Element
-2. Atribte
+2. Atribute
 3. Text node
 8. Comment
 9. Document itself
@@ -132,7 +132,7 @@ event bubbling
 .parentElement
 
 
-sessioStorage and localStorage
+sessionStorage and localStorage
 
 
 ## Todo app with localStorage
@@ -147,7 +147,7 @@ sessioStorage and localStorage
 - Clear state #DONE 
 - Functions!!! #DONE 
 - No duplicate code #DONE 
-- branch name is task/TODOlist
+- branch name is task/TODOlist #DONE 
 - when i push the request, i should send a merge request to the main branch
 
 
@@ -155,8 +155,8 @@ sessioStorage and localStorage
 
 
 
-Number guesser game
-SkeletonCSS
+## Number guesser game
+- SkeletonCSS #DONE 
 
 
 

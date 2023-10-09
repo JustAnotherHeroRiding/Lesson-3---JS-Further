@@ -1,9 +1,11 @@
 const list = document.getElementById("taskList");
 const addTaskBtn = document.getElementById("addTask");
 const newTaskInput = document.getElementById("newTask");
+const newTaskForm = document.getElementById("newTaskForm");
 const searchInput = document.getElementById("searchBar");
 const searchForm = document.getElementById("searchForm");
 const clearAll = document.getElementById("clearAll");
+const newTaskError = document.getElementById("newTaskError");
 
 function getTasksFromLocalStorage() {
   const storedTasks = localStorage.getItem("tasks");
@@ -12,14 +14,42 @@ function getTasksFromLocalStorage() {
 function searchTasks(query) {
   const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
-  const results = tasks.filter((task) => task.toLowerCase().includes(query.toLowerCase()));
+  const results = tasks.filter((task) =>
+    task.toLowerCase().includes(query.toLowerCase())
+  );
 
   return results;
 }
+let fadeOutTimer;
+function addNewTask() {
+  const tasks = getTasksFromLocalStorage();
+  const newTask = newTaskInput.value.trim();
+
+  if (newTask !== "") {
+    tasks.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    updateList();
+  } else {
+    newTaskError.textContent = "Please enter a task.";
+    newTaskError.style.opacity = "0";
+
+    if (fadeOutTimer) {
+      clearTimeout(fadeOutTimer);
+      newTaskError.style.opacity = "1";
+    }
+
+    fadeOutTimer = setTimeout(() => {
+      newTaskError.style.opacity = "1";
+      newTaskError.textContent = "";
+    }, 3000);
+  }
+
+  newTaskInput.value = "";
+}
 
 function clearTasks() {
-    localStorage.clear();
-    list.innerHTML = "";
+  localStorage.clear();
+  list.innerHTML = "";
 }
 
 function getTasks(tasks) {
@@ -35,7 +65,12 @@ function getTasks(tasks) {
       if (taskIndex !== -1) {
         tasks.splice(taskIndex, 1);
         localStorage.setItem("tasks", JSON.stringify(tasks));
-        newListItem.remove();
+
+        newListItem.classList.add("fade-out");
+
+        setTimeout(() => {
+          newListItem.remove();
+        }, 400);
       }
     });
     newListItem.textContent = task;
@@ -61,13 +96,12 @@ function updateSearchResults() {
 }
 
 addTaskBtn.addEventListener("click", () => {
-  const tasks = getTasksFromLocalStorage();
-  const newTask = newTaskInput.value;
-  if (newTask !== "") {
-    tasks.push(newTask);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    updateList();
-  }
+  addNewTask();
+});
+
+newTaskForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addNewTask();
 });
 
 searchForm.addEventListener("submit", (event) => {
@@ -75,9 +109,8 @@ searchForm.addEventListener("submit", (event) => {
   updateSearchResults();
 });
 
-
 clearAll.addEventListener("click", () => {
-    clearTasks();
-})
+  clearTasks();
+});
 
 updateList();

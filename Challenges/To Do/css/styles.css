@@ -3,6 +3,9 @@ body {
   color: #12486b !important;
 }
 
+h1 {
+  margin: 0.5em 0;
+}
 .flex-main {
   display: flex;
   margin: 0 auto;
@@ -20,6 +23,12 @@ li {
   background-color: #419197;
   color: white;
   list-style-type: none;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
+}
+
+.fade-out {
+  opacity: 0 !important;
 }
 
 .remove-btn {
@@ -35,8 +44,8 @@ li {
   gap: 0.5em;
   width: 80%;
   justify-content: center;
-  align-items: center; 
-  margin-bottom: 5%;
+  align-items: center;
+  margin-bottom: 0.5em;
 }
 
 #newTask {
@@ -44,7 +53,7 @@ li {
 }
 
 input {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 button {
   display: flex;
@@ -69,7 +78,7 @@ button {
 #searchIcon {
   position: absolute;
   left: 2%;
-  top: 15%;
+  top: 18%;
 }
 
 #clearAll {
@@ -80,9 +89,15 @@ button {
   color: #ff4b91;
 }
 
-
 #newTaskForm {
-    display: flex;
-    margin-top: auto;
-    margin: auto 0;
+  display: flex;
+  margin-top: auto;
+  margin: auto 0;
+}
+
+#newTaskError {
+  color: #d83f31;
+  font-weight: 700;
+  opacity: 1;
+  transition: opacity 3s ease-in-out;
 }
