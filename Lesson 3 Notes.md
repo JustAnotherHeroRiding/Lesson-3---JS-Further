@@ -158,15 +158,13 @@ sessionStorage and localStorage
 ## Number guesser game
 - SkeletonCSS #DONE 
 - Create the html layout #DONE 
-- Create a function to create a random number
-- Initialize a const with 3 guesses to check the number
-- Check function to see if the number that the user guessed is correct
-- If the player guesses incorrectly 3 times in a row then a game over message will be displayed and the button is changed to play again
-- Green text if the number guess is correct
-- Display probability of guessing the number in the message
-
-
-
+- Create a function to create a random number #DONE 
+- Initialize a const with 3 guesses to check the number #DONE 
+- Check function to see if the number that the user guessed is correct #DONE 
+- If the player guesses incorrectly 3 times in a row then a game over message will be displayed and the button is changed to play again #DONE 
+- Green text if the number guess is correct #DONE 
+- Display probability of guessing the number in the message #DONE 
+- Check if the user guessed the same number twice, perhaps a new variable of guessed numbers, we can use a set
 
 
 

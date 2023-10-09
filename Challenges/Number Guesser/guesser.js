@@ -7,6 +7,8 @@ let attempts = 3;
 let victory = false;
 let percentage = 10;
 
+let guessedNumbers = new Set();
+
 function checkSubmit() {
   const guess = numberInput.value;
   if (attempts == 1) {
@@ -19,14 +21,16 @@ function checkSubmit() {
     return;
   } else if (guess == target) {
     return true;
+  } else {
+    guessedNumbers.add(guess);
   }
-  numberInput.textContent = "";
+  numberInput.value = "";
 
   return false;
 }
 
 function calculatePercentage() {
-  percentage = 100 / (7 + attempts);
+  percentage = 100 / (10 - guessedNumbers.length);
   percentageH4.textContent = `Chance to guess ${percentage.toFixed(2)}%`;
 }
 
@@ -54,6 +58,7 @@ submitBtn.addEventListener("click", () => {
     submitBtn.textContent = "Submit";
     target = Math.floor(Math.random() * 10) + 1;
     calculatePercentage();
+    guessedNumbers = new Set(); // Reset the guessedNumbers Set
   }
 });
 calculatePercentage();
