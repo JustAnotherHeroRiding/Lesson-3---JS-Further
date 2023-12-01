@@ -150,6 +150,11 @@ sessionStorage and localStorage
 - branch name is task/TODOlist #DONE 
 - when i push the request, i should send a merge request to the main branch
 
+## Add one event list to the ul
+- Add event bubbling
+- Event delegation
+- Do not use an event listener for each button
+
 
 
 
